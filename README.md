@@ -30,14 +30,7 @@ HireHub is a Django-based web application designed as a complete job portal. It 
 
 Follow these steps to run the project locally:
 
-1. *Clone the repository*
-
-   bash
-   git clone https://github.com/yourusername/hirehub.git
-   cd hirehub
-   
-
-2. *Create and activate virtual environment*
+*Create and activate virtual environment*
 
    bash
    python -m venv env
@@ -45,26 +38,26 @@ Follow these steps to run the project locally:
    env\Scripts\activate     # for Windows
    
 
-3. *Install the dependencies*
+ *Install the dependencies*
 
    bash
    pip install -r requirements.txt
    
 
-4. *Apply Migrations*
+ *Apply Migrations*
 
    bash
    python manage.py makemigrations
    python manage.py migrate
    
 
-5. *Run the development server*
+ *Run the development server*
 
    bash
    python manage.py runserver
    
 
-6. Visit http://127.0.0.1:8000/ in your browser.
+ Visit http://127.0.0.1:8000/ in your browser.
 
 ---
 
