@@ -1,0 +1,156 @@
+/* postedjobs.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #008080);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #8fbc8f;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    text-align: center;
+    color: #6b21a8;
+    margin-bottom: 35px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.job-form {
+    margin-bottom: 40px;
+    animation: slideIn 0.5s ease-in;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.job-card {
+    background-color: #8fbc8f;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid #6b21a8;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+    display: block;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #6b21a8;
+    box-shadow: 0 0 5px rgba(107, 33, 168, 0.3);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.update-btn,
+.delete-btn {
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.update-btn {
+    background-color: #6b21a8;
+    color: #fff;
+}
+
+.update-btn:hover {
+    background-color: #581c87;
+    transform: scale(1.05);
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.delete-btn:hover {
+    background-color: #b02a37;
+    transform: scale(1.05);
+}
+
+.post-more-btn {
+    display: block;
+    margin: 30px auto 0;
+    background-color: #7e22ce;
+    color: #fff;
+    font-weight: bold;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.post-more-btn:hover {
+    background-color: #6b21a8;
+    transform: scale(1.05);
+}
+
+.no-jobs {
+    text-align: center;
+    color: #777;
+    font-size: 18px;
+    margin-top: 40px;
+    animation: fadeIn 1s ease;
+}

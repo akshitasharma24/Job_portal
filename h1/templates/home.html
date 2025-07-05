@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center vh-100">
+    
+    <!-- Heading -->
+    <h1 class="mb-4">Welcome to Hirehub</h1>
+
+    <div class="button-container">
+        <!-- Button for User with Django URL -->
+        <a href="{% url 'LoginPage' %}" class="custom-btn">User</a>
+        
+        <!-- Button for Company with Django URL -->
+        <a href="{% url 'Complogin' %}" class="custom-btn">Company</a>
+    </div>
+</div>
+
+</body>
+</html>

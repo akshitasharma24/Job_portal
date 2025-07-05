@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>View Profile</title>
+    <link rel="stylesheet" href="{% static 'css/viewprofile.css' %}">
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Your Profile</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if profile %}
+                <div class="profile-card">
+                    <p><strong>Name:</strong> <input type="text" name="name" value="{{ profile.name }}" required></p>
+                    <p><strong>Email:</strong> <input type="email" name="email" value="{{ profile.email }}" required></p>
+                    <p><strong>10th Marks:</strong> <input type="text" name="tenth" value="{{ profile.tenth }}" required></p>
+                    <p><strong>12th Marks:</strong> <input type="text" name="twelfth" value="{{ profile.twelfth }}" required></p>
+                    <p><strong>UG:</strong> <input type="text" name="ug" value="{{ profile.ug }}" required></p>
+                    <p><strong>PG:</strong> <input type="text" name="pg" value="{{ profile.pg }}" required></p>
+                    <p><strong>Employment Type:</strong> <input type="text" name="employment_type" value="{{ profile.employment_type }}" required></p>
+                    <p><strong>Preferred Location:</strong> <input type="text" name="preferred_location" value="{{ profile.preferred_location }}" required></p>
+                    <p><strong>Preferred Role:</strong> <input type="text" name="preferred_role" value="{{ profile.preferred_role }}" required></p>
+                    <p><strong>Experience (Years):</strong> <input type="text" name="years_exp" value="{{ profile.years_exp }}" required></p>
+                    <p><strong>Current Salary:</strong> <input type="text" name="current_salary" value="{{ profile.current_salary }}" required></p>
+                    <p><strong>Expected Salary:</strong> <input type="text" name="expected_salary" value="{{ profile.expected_salary }}" required></p>
+                    <p><strong>Preferred Shift:</strong> <input type="text" name="preferred_shift" value="{{ profile.preferred_shift }}" required></p>
+                    <p><strong>Languages:</strong> <input type="text" name="language" value="{{ profile.language }}" required></p>
+
+                    {% if profile.resume %}
+                        <p><strong>Resume:</strong> <a href="{{ profile.resume.url }}" target="_blank">Download Resume</a></p>
+                    {% else %}
+                        <p><strong>Resume:</strong> Not uploaded</p>
+                    {% endif %}
+
+
+                    <div class="btn-group">
+                        <button type="submit" class="btn update">Update Profile</button>
+                        <a href="{% url 'DeleteProfile' %}" class="btn delete"onclick="return confirm('Are you sure you want to delete your profile?');">Delete Profile</a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="empty">
+                    <p>No profile found.</p>
+                    <a href="{% url 'EditProfile' %}" class="btn create">Create Profile</a>
+                </div>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

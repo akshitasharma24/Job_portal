@@ -1,0 +1,108 @@
+/* Animated Gradient Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #00c6ff, #0072ff, #00c6ff, #0072ff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #2c2c2c;
+}
+
+/* Animation Keyframes */
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #ffffffcc; /* semi-transparent white */
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease;
+}
+
+/* Fade In */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* Title */
+h2 {
+    font-size: 2.5rem;
+    color: #1b1b1b;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Company Info */
+.company {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Job Info Boxes */
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.info-box {
+    flex: 1 1 45%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Description Section */
+.description h3 {
+    margin-top: 25px;
+    color: #1f4f4f;
+}
+
+.description p {
+    margin-top: 5px;
+    line-height: 1.6;
+}
+
+/* Apply Button */
+.apply-box {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-apply {
+    padding: 14px 35px;
+    background: #0072ff;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-apply:hover {
+    background: #005bcc;
+    transform: scale(1.05);
+}

@@ -1,0 +1,139 @@
+/* Page Background */
+body {
+    margin: 0;
+    padding: 50px 20px;
+    background-color: #008080; /* Teal */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Outer Container - Mustard */
+.my-jobs-container {
+    max-width: 950px;
+    margin: auto;
+    background: #E6E6FA; /* Mustard */
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 0.8s ease;
+}
+
+/* Heading */
+.my-jobs-container h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #2f2f2f;
+    margin-bottom: 40px;
+}
+
+/* Inner Job Card */
+.job-card {
+    background: #E6E6FA;/* Mustard */
+    color: #2d2d2d;
+    padding: 25px 30px;
+    margin-bottom: 30px;
+    border-radius: 14px;
+    border: 2px solid #d0b232;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Job Title */
+.job-card h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #4B2E14;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Job Details */
+.job-card p {
+    font-size: 15px;
+    margin: 6px 0;
+    color: #333;
+}
+
+.job-card p strong {
+    color: #1f1f1f;
+}
+
+/* STATUS DISPLAY - HIGHLIGHTED COLOR BOXES */
+.status-text {
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 10px;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 15px;
+    text-align: center;
+    width: fit-content;
+    min-width: 100px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* PENDING - Most Highlighted */
+.status-pending {
+    background-color: #4B2E14 ! important;/* Deep Brown */
+    color: #ffffff ! important; /* White text */
+}
+
+/* ACCEPTED */
+.status-accepted {
+    background-color: #1f7f1f ! important; /* Deep Green */
+    color: #ffffff ! important;
+}
+
+/* REJECTED */
+.status-rejected {
+    background-color: #b91c1c ! important; /* Red */
+    color: #ffffff ! important;
+}
+
+/* Button Container */
+.btn-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+/* Buttons - Uniform Size */
+.btn {
+    width: 130px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: transform 0.2s ease;
+    display: inline-block;
+    padding: 0;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Button Colors */
+.view-more {
+    background-color: #1f4f4f;
+}
+
+.delete-btn {
+    background-color: #b91c1c;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

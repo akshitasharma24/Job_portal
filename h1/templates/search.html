@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Job</title>
+    <link rel="stylesheet" href="{% static 'css/search.css' %}"> <!-- External CSS -->
+</head>
+<body>
+    <div class="search-container">
+        <h2>Find Your Dream Job</h2>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="text" name="skills" placeholder="Enter Skills or Job Title" required>
+            <input type="text" name="location" placeholder="Enter Location" required>
+            <button type="submit">Search</button>
+        </form>
+    </div><div class="results-container">
+    {% if results %}
+        {% for job in results %}
+        <div class="job-card">
+            <h3>{{ job.job_title }}</h3>
+            <p><strong>Company:</strong> {{ job.company_name }}</p>
+            <p><strong>Location:</strong> {{ job.job_location }}</p>
+            <p><strong>Employment Type:</strong> {{ job.employment_type }}</p>
+            <p><strong>Salary Range:</strong> {{ job.salary_range }}</p>
+            <p><strong>Experienced Required:</strong> {{ job.experience_required }}</p>
+
+            <button class="view-details" onclick="showDetails('details{{ job.id }}')">View Details</button>
+            <div class="job-details" id="details{{ job.id }}" style="display: none;">
+                <p><strong>Experience Required:</strong> {{ job.industry_type }}</p>
+                <p><strong>Skills Required:</strong> {{ job.headquarters }}</p>
+                <p><strong>Established Year:</strong> {{ job.established_year }}</p>
+                <p><strong>About Company:</strong> {{ job.about_company }}</p>
+                <p><strong>Contact Person:</strong> {{ job.contact_person }}</p>
+                <p><strong>Contact E-mail:</strong> {{ job.contact_email }}</p>
+                <p><strong>Contact Phone no.:</strong> {{ job.contact_phone }}</p>
+                <p><strong>Company Address:</strong> {{ job.company_address }}</p>
+                <p><strong>Skill required:</strong> {{ job.skills_required }}</p>
+                <p><strong>Description:</strong> {{ job.job_description }}</p>
+                <a href="{% url 'ApplyJob' job.id %}" class="apply-btn">Apply Now</a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-results">No jobs found. Please try again.</p>
+    {% endif %}
+</div>
+
+<script>
+    function showDetails(id) {
+        var details = document.getElementById(id);
+        if (details.style.display === "none") {
+            details.style.display = "block";
+        } else {
+            details.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

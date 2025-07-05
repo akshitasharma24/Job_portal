@@ -1,0 +1,123 @@
+/* Static Black Background */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #f1f1f1;
+}
+
+/* Container */
+.profile-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+/* Profile Card */
+.profile-card {
+    padding: 20px;
+}
+
+/* Inputs */
+.profile-card p {
+    margin: 15px 0;
+}
+
+.profile-card input[type="text"],
+.profile-card input[type="email"] {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.profile-card input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px #777;
+}
+
+/* Resume Link */
+a {
+    color: #00a8ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.btn-group {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.update {
+    background-color: #00b894;
+}
+
+.update:hover {
+    background-color: #019875;
+    transform: scale(1.05);
+}
+
+.delete {
+    background-color: #d63031;
+}
+
+.delete:hover {
+    background-color: #b22525;
+    transform: scale(1.05);
+}
+
+.create {
+    background-color: #0984e3;
+    color: white;
+}
+
+.create:hover {
+    background-color: #0864b3;
+    transform: scale(1.05);
+}
+
+/* No Profile Case */
+.empty {
+    text-align: center;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}

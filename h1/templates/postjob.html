@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/postjob.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Post a Job</h2>
+        <div class="login-box">
+
+            <!-- Company Info Section -->
+            
+            <form method="POST" action="{% url 'PostJob' %}" >
+                {% csrf_token %}
+                <h3>1. Company Information</h3>
+                <div class="form-group">
+
+            
+                    <input type="text" name="company_name" placeholder="Company Name" required>
+
+                    <!-- Dropdown for Industry Type -->
+                    <select name="industry_type" required>
+                        <option value="" disabled selected>Industry Type</option>
+                        <option value="IT">IT</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Education">Education</option>
+                        <option value="E-commerce">E-commerce</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="headquarters" placeholder="Headquarters Location" required>
+                    <input type="text" name="established_year" placeholder="Established Year" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="about_company" placeholder="About Company" rows="4" required></textarea>
+                </div>
+            
+
+            <!-- Contact Info Section (With Contact Email) -->
+            <h3>2. Contact Information</h3>
+            
+                <div class="form-group">
+                    <input type="text" name="contact_person" placeholder="Contact Person" required>
+                    <input type="tel" name="contact_phone" placeholder="Contact Number" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="contact_email" placeholder="Contact Email" required>
+                    <input type="text" name="company_address" placeholder="Company Address" required>
+                </div>
+            
+
+            <!-- Post Job Section (With Drop-down for Employment Type) -->
+            <h3>3. Post Job Details</h3>
+            
+                <div class="form-group">
+                    <input type="text" name="job_title" placeholder="Job Title" required>
+                    <input type="text" name="job_location" placeholder="Job Location" required>
+                </div>
+                <div class="form-group">
+                    <!-- Dropdown for Employment Type -->
+                    <select name="employment_type" required>
+                        <option value="" disabled selected>Employment Type</option>
+                        <option value="Full-Time">Full-Time</option>
+                        <option value="Part-Time">Part-Time</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Contract">Contract</option>
+                    </select>
+                    <input type="text" name="salary_range" placeholder="Salary Range" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="experience_required" placeholder="Experience Required" required>
+                    <input type="text" name="skills_required" placeholder="Skills Required" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="job_description" placeholder="Job Description" rows="4" required></textarea>
+                </div>
+            
+
+                <!-- Submit Button -->
+            
+                <button type="submit">Post Job</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

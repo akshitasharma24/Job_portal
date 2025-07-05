@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <link rel="stylesheet" href="{% static 'css/joblist.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Available Jobs</h1>
+
+    <div class="jobs-container">
+        {% for job in jobs %}
+        <div class="job-box">
+            <div class="job-header">
+                <h2>{{ job.job_title }}</h2>
+                <span class="company-name">{{ job.company_name }}</span>
+            </div>
+            <div class="job-body">
+                <p class="job-location">
+                    <strong>Location:</strong> {{ job.job_location }}</p>
+                <p class="employment_type">
+                    <strong>employment_type:</strong> {{ job.employment_type }}</p>
+                <p class="salary_range">
+                    <strong>salary_range:</strong> {{ job.salary_range }}</p>
+                <p class="experience_required">
+                    <strong>experience_required:</strong> {{ job.experience_required }}</p>
+                
+            </div>
+            <div class="job-footer">
+                <a href="{% url 'JobDetails' job.id %}" class="apply-button" onclick="openModal('{{ job.title }}', '{{ job.company_name }}', '{{ job.job_location }}', '{{ job.employment_type }}', '{{ job.experience_required }}','{{ job.salary_range }}')">View More</a>
+            </div>
+        </div>
+        {% empty %}
+        <p>No jobs available</p>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Modal (View More Details) -->
+<div id="jobModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-job-title"></h2>
+        <p><strong>company_name:</strong> <span id="modal-company_name"></span></p>
+        <p><strong>job_location:</strong> <span id="modal-job_location"></span></p>
+        <p><strong>salary_range:</strong> <span id="modal-salary_range"></span></p>
+        <p><strong>employment_type:</strong> <span id="modal-employment_type"></span></p>
+        <p><strong>experience_required:</strong> <span id="modal-experience_required"></span></p>
+    </div>
+</div>
+
+<script src="{% static 'js/joblist.js' %}"></script>
+
+</body>
+</html>

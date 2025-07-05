@@ -1,0 +1,108 @@
+/* applicants.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #c8a6c9);
+    color: #333;
+    min-height: 100vh;
+}
+
+.applicants-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffffef;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    text-align: center;
+    color: #00796b;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.applicant-card {
+    background: #f1f8e9;
+    border: 2px solid #b2dfdb;
+    border-left: 6px solid #00796b;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.applicant-card:hover {
+    transform: scale(1.015);
+    box-shadow: 0 12px 24px rgba(0, 121, 107, 0.2);
+    background-color: #e0f2f1;
+}
+
+.applicant-card h2 {
+    color: #004d40;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.applicant-card p {
+    margin: 6px 0;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.applicant-card a {
+    color: #00796b;
+    text-decoration: underline;
+}
+
+.status-form {
+    margin-top: 16px;
+}
+
+.status-form select,
+.status-form button,
+form button {
+    font-size: 14px;
+    padding: 6px 12px;
+    margin-right: 8px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+.status-form select {
+    background-color: #e0f2f1;
+    border: 1px solid #80cbc4;
+    transition: 0.2s;
+}
+
+.status-form button,
+form button {
+    background-color: #009688;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.status-form button:hover,
+form button:hover {
+    background-color: #00796b;
+    transform: scale(1.05);
+}
+
+.no-apps {
+    text-align: center;
+    color: #004d40;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 40px;
+}

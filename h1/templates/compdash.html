@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIREHUB</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/compdash.css' %}">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">HIREHUB<span>  JOB PORTAL</span></div>
+            <!-- Navigation Options as <a> Tags Styled as Buttons -->
+            <div class="nav-form">
+                <a href="{% url 'Applicants' %}" class="nav-btn">Applicants</a>
+                <a href="{% url 'PostedJobs' %}" class="nav-btn">Posted Jobs</a>
+                <a href="{% url 'Complogout' %}" class="nav-btn">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="banner-text">
+            <h1> "FUELING ORGANIZATIONAL SUCCESS THROUGH <br> SMART TALENT ACQUISITION"</h1>
+            
+            <p>We empower companies to achieve their goals by connecting them with <br> skilled professionals who drive innovation.</p>
+                    </div>
+    </section>
+
+</body>
+</html>

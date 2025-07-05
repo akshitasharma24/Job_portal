@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/editprofile.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2> User Profile</h2>
+        <div class="login-box">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- Personal Details -->
+                <h3>1. Personal Details</h3>
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                
+
+                <!-- Educational Details -->
+                <h3>2. Educational Details</h3>
+                <div class="form-group">
+                    <input type="text" name="tenth" placeholder="10th Percentage" required>
+                    <input type="text" name="twelfth" placeholder="12th Percentage" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="ug" placeholder="UG Percentage" required>
+                    <input type="text" name="pg" placeholder="PG Percentage" required>
+                </div>
+            
+
+                <!-- Career Preferences -->
+                <h3>3. Career Preferences</h3>
+            
+                <div class="form-group">
+                    <!-- Dropdown for Employment Type -->
+                    <select name="employment_type" required>
+                        <option value="" disabled selected>Employment Type</option>
+                        <option value="full-time">Full-Time</option>
+                        <option value="part-time">Part-Time</option>
+                        <option value="internship">Internship</option>
+                        <option value="contract">Contract</option>
+                    </select>
+
+                    <input type="text" name="preferred_location" placeholder="Preferred Location" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="preferred_role" placeholder="Preferred Role" required>
+
+                    <!-- Dropdown for Years of Experience -->
+                    <select name="years_exp" required>
+                        <option value="" disabled selected>Years of Experience</option>
+                        <option value="0-1">0-1 Years</option>
+                        <option value="1-3">1-3 Years</option>
+                        <option value="3-5">3-5 Years</option>
+                        <option value="5+">5+ Years</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="current_salary" placeholder="Current Salary" required>
+                    <input type="text" name="expected_salary" placeholder="Expected Salary" required>
+                </div>
+                <div class="form-group">
+                    <!-- Dropdown for Preferred Shift -->
+                    <select name="preferred_shift" required>
+                        <option value="" disabled selected>Preferred Shift</option>
+                        <option value="day">Day Shift</option>
+                        <option value="night">Night Shift</option>
+                        <option value="flexible">Flexible</option>
+                    </select>
+
+                    <input type="text" name="language" placeholder="Language" required>
+                </div>
+            
+
+                <!-- Resume Upload -->
+                <h3>4. Upload Resume</h3>
+                    <input type="file" name="resume" accept=".pdf, .doc, .docx" required>
+                    <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

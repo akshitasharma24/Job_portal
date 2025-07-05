@@ -1,0 +1,63 @@
+body {
+    background-image: url('/static/images/dash6.jpg'); /* Set the background */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Style for the heading */
+h1 {
+    color: #fff;
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Centered horizontally and vertically */
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for buttons */
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for the anchor buttons */
+.custom-btn {
+    font-size: 24px; /* Increased font size */
+    font-weight: bold; /* Made text bold */
+    color: yellow; /* Text color set to yellow */
+    text-decoration: none;
+    background: transparent;
+    padding: 12px 30px; /* Increased padding for bigger button size */
+    border: 2px solid yellow;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Hover effect */
+.custom-btn:hover {
+    color: black;
+    background-color: yellow;
+    transform: scale(1.1);
+}
+
+/* Button when clicked (active state) */
+.custom-btn:active {
+    background-color: rgba(255, 255, 0, 0.8);
+    transform: scale(1);
+}

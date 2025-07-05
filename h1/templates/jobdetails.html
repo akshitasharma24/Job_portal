@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/jobdetails.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- Job Details Section -->
+        <div class="job-box">
+            <h2>{{ job.job_title }}</h2>
+            <p class="company">{{ job.company_name }} | {{ job.industry_type }}</p>
+            
+            <div class="details">
+                <div class="info-box">
+                    <p><strong>Location:</strong> {{ job.job_location }}</p>
+                    <p><strong>Employment Type:</strong> {{ job.employment_type }}</p>
+                    <p><strong>Salary Range:</strong> {{ job.salary_range }}</p>
+                    <p><strong>Experience Required:</strong> {{ job.experience_required }}</p>
+                    <p><strong>Established Year:</strong> {{ job.established_year }}</p>
+                </div>
+                <div class="info-box">
+                    <p><strong>Contact Person:</strong> {{ job.contact_person }}</p>
+                    <p><strong>Contact Email:</strong> {{ job.contact_email }}</p>
+                    <p><strong>Contact Phone:</strong> {{ job.contact_phone }}</p>
+                    <p><strong>Headquarters:</strong> {{ job.headquarters }}</p>
+                    <p><strong>Company Address:</strong> {{ job.company_address }}</p>
+                </div>
+            </div>
+
+            <div class="description">
+                <h3>About Company</h3>
+                <p>{{ job.about_company }}</p>
+                <h3>Skills Required</h3>
+                <p>{{ job.skills_required }}</p>
+                <h3>Job Description</h3>
+                <p>{{ job.job_description }}</p>
+            </div>
+
+            <!-- Apply Button -->
+
+            <div class="apply-box">
+                {% if show_apply_button %}
+                <a href="{% url 'ApplyJob' job.id %}" class="btn-apply">Apply Now</a>
+                {% elif profile_missing %}
+                <p style="color: red; font-weight: bold;">Please create your profile before applying.</p>
+                {% else %}
+                <p style="color: green; font-weight: bold;">You have already applied for this job.</p>
+                {% endif %}
+            </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

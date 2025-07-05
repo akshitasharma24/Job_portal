@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIREHUB</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">HIREHUB<span>JOB PORTAL</span></div>
+            <!-- Navigation Options as <a> Tags Styled as Buttons -->
+            <div class="nav-form">
+                <a href="{% url 'SearchJob' %}" class="nav-btn">Search</a>
+                <a href="{% url 'Joblist' %}" class="nav-btn">List of Job</a>
+                <a href="{% url 'MyJobs' %}" class="nav-btn">My Jobs</a>
+                <a href="{% url 'ViewProfile' %}" class="nav-btn">Profile</a>
+                <a href="{% url 'logout' %}" class="nav-btn">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="banner-text">
+            <h2>FIND YOUR DREAM JOB WITH US</h2>
+            <h1>WHAT YOU SEEK FOR IS <br>WHAT WE HAVE</h1>
+            <p>Our mission is to bring clarity in the process of placement<br> 
+               for Software professionals and place right candidate at right place.</p>
+        </div>
+        
+    </section>
+</body>
+</html>
+
+

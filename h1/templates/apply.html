@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Successful</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/apply.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="success-box">
+            <h2>Application Submitted Successfully!</h2>
+            <p>Thank you for applying for the position of <strong>{{ job.job_title }}</strong> at <strong>{{ job.company_name }}</strong>.</p>
+            <a href="{% url 'DashboardPage' %}" class="btn-home">Return to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

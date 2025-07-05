@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Applicants</title>
+    <link rel="stylesheet" href="{% static 'css/applicants.css' %}">
+    <style>
+        .status-form { margin-top: 10px; }
+        .status-form select, .status-form button {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="applicants-container">
+        <h1>Applicants for Your Jobs</h1>
+
+        {% if applicant_profiles %}
+            {% for app in applicant_profiles %}
+            <div class="applicant-card">
+                <h2>{{ app.profile.name }}</h2>
+
+                <p><strong>Email:</strong> {{ app.profile.email }}</p>
+                
+            
+                <p><strong>10th Marks:</strong> {{ app.profile.tenth }}</p>
+                <p><strong>12th Marks:</strong> {{ app.profile.twelfth }}</p>
+                <p><strong>UG:</strong> {{ app.profile.ug }}</p>
+                <p><strong>PG:</strong> {{ app.profile.pg }}</p>
+                <p><strong>Employment Type:</strong> {{ app.profile.employment_type }}</p>
+                <p><strong>Preferred Location:</strong> {{ app.profile.preferred_location }}</p>
+                <p><strong>Preferred Role:</strong> {{ app.profile.preferred_role }}</p>
+                <p><strong>Experience:</strong> {{ app.profile.years_exp }} years</p>
+                <p><strong>Current Salary:</strong> {{ app.profile.current_salary }}</p>
+                <p><strong>Expected Salary:</strong> {{ app.profile.expected_salary }}</p>
+                <p><strong>Preferred Shift:</strong> {{ app.profile.preferred_shift }}</p>
+                <p><strong>Languages:</strong> {{ app.profile.language }}</p>
+
+                {% if app.profile.resume %}
+                    <p><strong>Resume:</strong> <a href="{{ app.profile.resume.url }}" target="_blank">View Resume</a></p>
+                {% else %}
+                    <p><strong>Resume:</strong> Not uploaded</p>
+                {% endif %}
+
+                <p><strong>Applied For:</strong> {{ app.application.job.job_title }}</p>
+
+                <!-- Status Update Form -->
+                <form method="post" action="{% url 'UpdateStatus' app.application.id %}" class="status-form">
+                    {% csrf_token %}
+                    <label><strong>Status:</strong></label>
+                    <select name="status">
+                        <option value="Pending" {% if app.application.status == "Pending" %}selected{% endif %}>Pending</option>
+                        <option value="In Review" {% if app.application.status == "In Review" %}selected{% endif %}>In Review</option>
+                        <option value="Accepted" {% if app.application.status == "Accepted" %}selected{% endif %}>Accepted</option>
+                        <option value="Rejected" {% if app.application.status == "Rejected" %}selected{% endif %}>Rejected</option>
+                    </select>
+                    <button type="submit">Update</button>
+                </form>
+
+                <!-- Delete Form -->
+                <form method="post" action="{% url 'DeleteApplication' app.application.id %}" onsubmit="return confirm('Are you sure you want to delete this application?');">
+                    {% csrf_token %}
+                    <button type="submit">Delete Application</button>
+                </form>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-apps">No applications yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

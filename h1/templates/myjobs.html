@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>My Applied Jobs</title>
+    <link rel="stylesheet" href="{% static 'css/myjobs.css' %}">
+</head>
+<body>
+    <div class="my-jobs-container">
+        <h2>My Applied Jobs</h2>
+        {% for item in applications %}
+        <div class="job-card">
+            <h3>{{ item.job.job_title }}</h3>
+            <p><strong>Company:</strong> {{ item.job.company_name }}</p>
+            <p><strong>Location:</strong> {{ item.job.job_location }}</p>
+            <p><strong>Type:</strong> {{ item.job.employment_type }}</p>
+            <p><strong>Experience:</strong> {{ item.job.experience_required }}</p>
+            <p><strong>Salary:</strong> {{ item.job.salary_range }}</p>
+
+            <!-- Read-only status display -->
+            <p class="status-text 
+                     {% if item.status == 'Pending' %}status-pending
+                     {% elif item.status == 'Accepted' %}status-accepted
+                     {% elif item.status == 'Rejected' %}status-rejected
+                     {% endif %}">
+           {{ item.status }}
+             </p>
+
+            <!-- Buttons -->
+            <div class="btn-group">
+                <a href="{% url 'JobDetails' item.job.id %}" class="btn view-more">View More</a>
+
+                <form action="{% url 'DeleteAppliedJob' item.id %}" method="POST" onsubmit="return confirm('Are you sure you want to delete this application?');">
+                    {% csrf_token %}
+                    <button type="submit" class="btn delete-btn">Delete</button>
+                </form>
+            </div>
+        </div>
+        {% empty %}
+        <p>You haven't applied for any jobs yet.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
